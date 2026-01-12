@@ -3,169 +3,427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday, SAHANA!</title>
+<title>Happy Birthday 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
+        background-color: #0b1220;
+        color: #e5e7eb;
         text-align: center;
         padding: 20px;
+        overflow: hidden;
     }
 
     h1 {
-        color: #ff69b4;
+        font-family: 'Dancing Script', cursive;
         font-size: 3em;
+        color: #93c5fd;
+        margin-bottom: 20px;
     }
 
+    /* ---------- MESSAGE ---------- */
     .message {
-        background-color: #fff;
-        padding: 25px;
-        border-radius: 10px;
-        max-width: 600px;
+        background: #111827;
+        padding: 22px;
+        border-radius: 16px;
+        max-width: 900px;
         margin: 20px auto;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: opacity 1.2s ease, transform 1.2s ease;
     }
 
+    .message.fade-out {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+
+    /* ---------- BUTTON ---------- */
     button {
-        background-color: #ff69b4;
+        background: linear-gradient(135deg, #640133, #140044);
         color: white;
         border: none;
-        padding: 14px 24px;
-        font-size: 16px;
-        border-radius: 6px;
+        padding: 14px 34px;
+        font-size: 15px;
+        border-radius: 800px;
         cursor: pointer;
-        margin-top: 20px;
+        margin-top: 22px;
+        transition: transform 0.25s ease, opacity 0.6s ease;
     }
 
+    button:active {
+        transform: scale(0.95);
+    }
+
+    .btn-fade {
+        opacity: 0.85;
+    }
+
+    /* ---------- IMAGE CONTAINER ---------- */
     .images {
         display: none;
         justify-content: center;
-        gap: 25px;
-        flex-wrap: wrap;
-        margin-top: 30px;
+        align-items: center;
+        margin-top: 20px;
+        position: relative;
+        z-index: 2;
     }
 
-    /* Image frame */
     .photo-frame {
-        position: relative;
-        width: 500px;
-        height: 500px;
+        width: 450px;
+        height: 440px;
+        animation: fadeZoom 0.9s ease;
     }
+
+    @keyframes fadeZoom {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    /* 🎞 Random photo transitions */
+.fade {
+    animation: fadeZoom 0.9s ease;
+}
+
+.slide-left {
+    animation: slideLeft 0.9s ease;
+}
+
+.slide-right {
+    animation: slideRight 0.9s ease;
+}
+
+.flip {
+    animation: flipIn 0.9s ease;
+}
+
+.rotate {
+    animation: rotateIn 0.9s ease;
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes flipIn {
+    from { opacity: 0; transform: rotateY(90deg); }
+    to { opacity: 1; transform: rotateY(0); }
+}
+
+@keyframes rotateIn {
+    from { opacity: 0; transform: rotate(-8deg) scale(0.9); }
+    to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+/* Handwritten typing effect */
+#typingTitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #2ca7f8;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* blinking cursor */
+#typingTitle::after {
+    content: "|";
+    margin-left: 6px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
 
     .photo-frame img {
         width: 100%;
         height: 100%;
-        border-radius: 15px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        border-radius: 22px;
+        object-fit: cover;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.6);
     }
 
-    /* Text overlay */
-    .photo-text {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0,0,0,0);
-        color: black;
-        padding: 6px 14px;
-        border-radius: 10px;
-        font-size: 10.5px;
-        font-weight: bold;
-    }
-
-    /* Video */
     .special-video {
-        width: 500px;
+        width: 520px;
         max-width: 100%;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        border-radius: 22px;
+        box-shadow: 0 14px 40px rgba(0,0,0,0.7);
     }
 
-    footer {
-        margin-top: 50px;
-        font-size: 0.8em;
-        color: #aaa;
+    /* ---------- HEARTS ---------- */
+    .heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+    @keyframes floatUp {
+        from { transform: translateY(0); opacity: 0.55; }
+        to { transform: translateY(-120vh); opacity: 0; }
+    }
+    @keyframes sparkle {
+    0%, 100% { text-shadow: 0 0 2px #fff; }
+    50% { text-shadow: 0 0 8px #fff; }
+}
+
+    /* ---------- CREDIT ---------- */
+    .credit {
+        margin-top: 70px;
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: #c7d2fe;
     }
 </style>
 </head>
 
 <body>
 
-<h1>Happy Birthday, SAHANA! 🎉</h1>
+<h1 id="typingTitle"></h1>
 
-<div class="message">
-    <p>Click below to see special memories 💖</p>
+<div class="message" id="introMessage">
+    <p>
+        Rii Sahana avre, neev andre yest ista gotha, nan life li ago yella special moments li neev irbeku and yella sad moments li dhairy helor neeve agirbeku.
+        nav kammi time li close adhvi, ibbrunu bega ne nammoru anno bond share madidhvi nim jothe iro each day nan happy agidhini , 
+        and mikkiro asto ist life na nim jothe ne aste happy agirbeku antha thumba ase itkondidhini,
+        yes, Nav swalpa Jagala adidhivi ... no swapla jaaasthi ne jagala adidhivi, 
+        (disrespect trust issues scoldings small fights) yella agidhe and adhrindh thumba kalthidhivi a mistakes mathe maddhe,next baro inna difficult days na face madok prepare agana!! Nammibrigu gothu nav nammuna yest ista padthivi antha! idhnella munche ne mathadkondidhivi adru e day helbek ansthu, nang special days antha adu idhu yavdhu illa ri,
+        but this day (JAN 25th) Most special day ri. overthink bidi,Yavaglu Happy agiri irthira kooda with or without me  neev ankondirodhkina olle life eh nimge sigli anth wish madthini!
+        I Love you so much Ri❤️
+        Enjoy the day Chinnimaaaa!!✨
+    </p>
 </div>
 
-<button id="photoBtn">Click to see my Cutie</button>
+<button id="photoBtn">Start the Journey 💝</button>
 
 <div class="images" id="imageContainer"></div>
 
-<footer>
-    <p>Created with ❤️ by ABHI</p>
-</footer>
+<audio id="bgMusic" src="song.mp3" loop></audio>
+
 
 <script>
-    // Photo groups with text
-    const imageGroups = [
-        [
-            { src: "image1.png", text: "Day One 💕" },
-            { src: "image2.jpg", text: "First Smile 😊" },
-            { src: "image3.jpg", text: "That Moment ✨" },
-            { src: "image4.jpg", text: "Beautiful Day ❤️" }
-        ],
-        [
-            { src: "image5.jpg", text: "Best Day Ever 💖" },
-            { src: "image6.jpg", text: "Memories 💫" },
-            { src: "image7.jpg", text: "Together Forever 🤍" },
-            { src: "image8.jpg", text: "Unforgettable 🌸" }
-        ]
+    const animations = ["fade", "slide-left", "slide-right", "flip", "rotate"];
+    const slides = [
+        { src: "Image1.jpeg", text: "First Meet"},
+        { src: "Image2.jpeg", text: "Temple Date" },
+        { src: "Image3.jpeg", text: "First Ride" },
+        { src: "Image4.jpeg", text: "Twinning" },
+        { src: "Image5.jpeg", text: "Dinner Date" },
+        { src: "Image6.jpeg", text: "Sick day" },
+        { src: "Image7.jpeg", text: "Traveled to Home" },
+        { src: "Image8.jpeg", text: "NightOut" },
+        { src: "Image9.jpeg", text: "My Fav one" },
+        { src: "Image10.jpeg", text: "Park" },
+        { src: "Image11.jpeg", text: "Sweetest Time" },
+        { src: "Image12.jpeg", text: "Mirror" },
+        { src: "Image13.jpeg", text: "Casual meet" },
+        { src: "Image14.jpeg", text: "Our Smile" },
+        { src: "Image15.jpeg", text: "Hug" },
+        { src: "Image16.jpeg", text: "Special Moment" },
+        { src: "Image17.jpeg", text: "Your Fav one" },
+        { src: "Image18.jpeg", text: "The Promise" }
     ];
 
-    const specialVideo = "video.mp4";
-    let clickCount = 0;
+    const teasingSteps = [
+        "One special thing is waiting for you ✨",
+        "Are you waiting? 😏",
+        "Hold on… almost there 👀",
+        "Okay okay… here you go 🎁"
+    ];
 
     const btn = document.getElementById("photoBtn");
     const container = document.getElementById("imageContainer");
+    const music = document.getElementById("bgMusic");
+    const introMessage = document.getElementById("introMessage");
+
+    let index = 0;
+    let heartToggle = true;
+ const emojiSequence = ["❤️", "💙", "🌸", "💫"];
+let emojiIndex = 0;
+let cycleEmojis = [];
+let heartStarted = false;
+
+function spawnHeart() {
+    const el = document.createElement("div");
+    el.className = "heart";
+
+    // pick next emoji
+    const emoji = emojiSequence[emojiIndex];
+    emojiIndex = (emojiIndex + 1) % emojiSequence.length;
+
+    el.textContent = emoji;
+
+    // random horizontal start
+    el.style.left = Math.random() * 80 + 10 + "vw";
+
+    // small random font size
+    el.style.fontSize = Math.random() * 4 + 14 + "px";
+
+    // start from bottom
+    el.style.bottom = "-40px";
+
+    // opacity start
+    el.style.opacity = 0;
+
+    document.body.appendChild(el);
+    cycleEmojis.push(el);
+
+    // fade in smoothly
+    requestAnimationFrame(() => {
+        el.style.transition = "opacity 1s";
+        el.style.opacity = 0.7;
+    });
+
+    // Floating distance and duration
+    const floatDistance = 750;// + Math.random() * 100; // randomize distance
+    const floatDuration = 30000;//15000 + Math.random() * 3000; // float 7-10 sec
+
+    // horizontal drift
+    const driftX = (Math.random() - 0.5) * 100; // ±50px
+
+    // rotation
+    const rotateDeg = (Math.random() - 0.5) * 30; // ±15deg
+
+    // scale pulsation keyframes
+    const scaleKeyframes = [
+        { transform: `translate(0px, 0px) rotate(0deg) scale(1)` },
+        { transform: `translate(${driftX/2}px, -${floatDistance/2}px) rotate(${rotateDeg}deg) scale(1.1)` },
+        { transform: `translate(${driftX}px, -${floatDistance}px) rotate(0deg) scale(1)` }
+    ];
+
+    el.animate(scaleKeyframes, {
+        duration: floatDuration,
+        easing: "ease-in-out",
+        fill: "forwards"
+    });
+
+    // subtle sparkle glow
+    el.animate(
+        [
+            { textShadow: "0 0 3px rgba(255,255,255,0.3)" },
+            { textShadow: "0 0 12px rgba(255,255,255,0.7)" },
+            { textShadow: "0 0 3px rgba(255,255,255,0.3)" }
+        ],
+        {
+            duration: 2000 + Math.random() * 1000,
+            iterations: floatDuration / 2000
+        }
+    );
+
+    // fade out after float
+    setTimeout(() => {
+        el.style.transition = "opacity 1.5s";
+        el.style.opacity = 0;
+        setTimeout(() => {
+            el.remove();
+            const index = cycleEmojis.indexOf(el);
+            if (index > -1) cycleEmojis.splice(index, 1);
+        }, 1500);
+    }, floatDuration);
+}
+
+function startHearts() {
+    if (heartStarted) return;
+    heartStarted = true;
+
+    function cycle() {
+        spawnHeart();
+
+        // one by one emoji spawn every 3 sec
+        setTimeout(cycle, 9000);
+    }
+
+    cycle();
+}
+
+
+    function fadeOutMusic() {
+    let vol = music.volume;
+    const fade = setInterval(() => {
+        if (vol > 0.02) {
+            vol -= 0.02;
+            music.volume = vol;
+        } else {
+            music.pause();
+            clearInterval(fade);
+        }
+    }, 150);
+}
+// Handwritten typing for title
+const titleText = "Happy Birthday, Rii 💙";
+const title = document.getElementById("typingTitle");
+
+let i = 0;
+
+function handwrittenType() {
+    if (i < titleText.length) {
+        title.textContent += titleText.charAt(i);
+        i++;
+
+        // Random delay = handwritten feel
+        const delay = Math.floor(50) + 250;
+        setTimeout(handwrittenType, delay);
+    }
+}
+
+handwrittenType();
+
 
     btn.addEventListener("click", () => {
-        container.innerHTML = "";
+        btn.classList.add("btn-fade");
+        setTimeout(() => btn.classList.remove("btn-fade"), 300);
+
         container.style.display = "flex";
+        container.innerHTML = "";
 
-        // Photo clicks
-        if (clickCount < imageGroups.length) {
-            imageGroups[clickCount].forEach(item => {
-                const frame = document.createElement("div");
-                frame.className = "photo-frame";
-
-                const img = document.createElement("img");
-                img.src = item.src;
-
-                const text = document.createElement("div");
-                text.className = "photo-text";
-                text.textContent = item.text;
-
-                frame.appendChild(img);
-                frame.appendChild(text);
-                container.appendChild(frame);
-            });
-            btn.textContent = "Click other photos <";
+        if (index === 0) {
+            startHearts();
+            introMessage.classList.add("fade-out");
+            setTimeout(() => introMessage.style.display = "none", 1200);
+            music.volume = 0.25;
+            music.play();
+            
         }
-        // Final video
-        else {
+
+        if (index < slides.length) {
+            const frame = document.createElement("div");
+            const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+            frame.className = `photo-frame ${randomAnim}`;
+            const img = document.createElement("img");
+            img.src = slides[index].src;
+            frame.appendChild(img);
+            container.appendChild(frame);
+            btn.textContent = slides[index].text;
+        }
+        else if (index < slides.length + teasingSteps.length) {
+            fadeOutMusic();
+            container.innerHTML = `<h2>${teasingSteps[index - slides.length]}</h2>`;
+            btn.textContent = " ";
+        }
+        else if (index === slides.length + teasingSteps.length) {
             const video = document.createElement("video");
-            video.src = specialVideo;
+            video.src = "video.mp4";
             video.controls = true;
             video.autoplay = true;
             video.className = "special-video";
-
             container.appendChild(video);
-            btn.textContent = "Special video ❤️";
-            btn.disabled = true;
+            btn.textContent = "I know you’re smiling now";
+        }
+        else {
+            container.innerHTML = `<div class="credit">Created with ❤️ by ABHI</div>`;
+            btn.style.display = "none";
         }
 
-        clickCount++;
+        index++;
     });
 </script>
 
